@@ -40,9 +40,6 @@ int	check_overflow(char **array, int size, t_stack **a)
 	i = 0;
 	while (i < size)
 	{
-		if (num_len(array[i]))
-			return (ft_printf("Error\n"),
-				free_array(array, size), free_list(*a), 0);
 		num = ft_atol(array[i]);
 		if (num > INT_MAX || num < INT_MIN)
 			return (ft_printf("Error\n"),
