@@ -41,17 +41,17 @@ int	check_overflow(char **array, int size, t_stack **a)
 	while (i < size)
 	{
 		if (num_len(array[i]))
-			return (ft_printf("Error\nInt overflow.\n"),
+			return (ft_printf("Error\n"),
 				free_array(array, size), free_list(*a), 0);
 		num = ft_atol(array[i]);
 		if (num > INT_MAX || num < INT_MIN)
-			return (ft_printf("Error\nInt overflow.\n"),
+			return (ft_printf("Error\n"),
 				free_array(array, size), free_list(*a), 0);
 		list_init(a, (int)num);
 		i++;
 	}
 	if (check_duplicate(a))
-		return (ft_printf("Error\nRepeated numbers.\n"),
+		return (ft_printf("Error\n"),
 			free_array(array, size), free_list(*a), 0);
 	free_array(array, size);
 	return (size);
@@ -74,7 +74,7 @@ int	check_number(int n, char **av, t_stack **a)
 			if (av[i][j] < '0' || av[i][j] > '9')
 			{
 				free_array(av, n);
-				return (ft_printf("Error\nInvalid characters.\n"), 0);
+				return (ft_printf("Error\n"), 0);
 			}
 			j++;
 		}
@@ -98,7 +98,7 @@ int	check_and_count_arg(char **av)
 			|| av[1][i] == '+') && (av[1][i]))
 			args++;
 		else if (!ft_isdigit(av[1][i]) && av[1][i] != ' ' && av[1][i] != '\0')
-			return (ft_printf("Error\nInvalid characters.\n"), 0);
+			return (ft_printf("Error\n"), 0);
 		while (av[1][i] != ' ' && av[1][i])
 			i++;
 	}
